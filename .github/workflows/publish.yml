@@ -18,10 +18,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Independent public website connectivity check
-        continue-on-error: true
-        run: |
-          curl --connect-timeout 8 --max-time 15 -sS -I https://vottovaarsky.ru/ || true
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
